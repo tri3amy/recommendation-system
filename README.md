@@ -1,4 +1,4 @@
-# 🛍️ E-Commerce Product Recommendation System
+# E-Commerce Product Recommendation System
 **Content-Based Filtering using TF-IDF and K-Nearest Neighbors (KNN)**
 
 ![Status](https://img.shields.io/badge/Status-Completed-success)
@@ -47,8 +47,8 @@ Instead of recalculating TF-IDF and training the model upon every launch, the ap
 
 ---
 
-## 🚀 How to Run the Project Locally
-**⚠️ IMPORTANT NOTE:** The raw dataset (`Reviews.csv`) and the generated model files are **not included** in this repository because their sizes exceed GitHub's 100MB limit. You must download the dataset and run the preprocessing script first before launching the app.
+## How to Run the Project Locally
+**⚠️ IMPORTANT NOTE:** The raw dataset (`Reviews.csv`) and the generated model files are **not included** in this repository. You must download the dataset and run the preprocessing script first before launching the app.
 
 ### Step 1: Clone the Repository
 ```bash
