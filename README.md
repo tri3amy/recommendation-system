@@ -101,7 +101,7 @@ streamlit run app.py
 *The app will open automatically in your browser at `http://localhost:8501`.*
 
 Live Demo
-You can try the recommendation system directly in your browser without installing anything! 
+You can try the recommendation system directly in your browser
 [Click here to access the live app on Streamlit Cloud](https://recommendation-system-9ucxqndqwrufsehz588peg.streamlit.app/)
 
 ---
