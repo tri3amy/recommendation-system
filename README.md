@@ -1,6 +1,7 @@
 # E-Commerce Product Recommendation System
 **Content-Based Filtering using TF-IDF and K-Nearest Neighbors (KNN)**
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://recommendation-system-9ucxqndqwrufsehz588peg.streamlit.app/)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 ![App](https://img.shields.io/badge/App-Streamlit-red)
 Python, Scikit-Learn, Pandas, NLTK, SciPy, Streamlit.
@@ -98,6 +99,10 @@ Once the preprocessing is complete, you can start the interactive web applicatio
 streamlit run app.py
 ```
 *The app will open automatically in your browser at `http://localhost:8501`.*
+
+Live Demo
+You can try the recommendation system directly in your browser without installing anything! 
+[Click here to access the live app on Streamlit Cloud](https://recommendation-system-9ucxqndqwrufsehz588peg.streamlit.app/)
 
 ---
 
