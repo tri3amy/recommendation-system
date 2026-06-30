@@ -1,0 +1,5 @@
+.env
+data/*.csv
+models/*.npz
+__pycache__/
+*.pyc
