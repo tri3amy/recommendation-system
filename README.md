@@ -1,4 +1,4 @@
-# 🛍️ E-Commerce Product Recommendation System
+# E-Commerce Product Recommendation System
 **Content-Based Filtering using TF-IDF and K-Nearest Neighbors (KNN)**
 
 ![Status](https://img.shields.io/badge/Status-Completed-success)
