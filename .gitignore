@@ -1,5 +1,4 @@
 .env
-data/*.csv
-models/*.npz
+data/Reviews.csv
 __pycache__/
 *.pyc
