@@ -48,7 +48,7 @@ Instead of recalculating TF-IDF and training the model upon every launch, the ap
 ---
 
 ## How to Run the Project Locally
-**⚠️ IMPORTANT NOTE:** The raw dataset (`Reviews.csv`) and the generated model files are **not included** in this repository because their sizes exceed GitHub's 100MB limit. You must download the dataset and run the preprocessing script first before launching the app.
+**⚠️ IMPORTANT NOTE:** The raw dataset (`Reviews.csv`) and the generated model files are **not included** in this repository. You must download the dataset and run the preprocessing script first before launching the app.
 
 ### Step 1: Clone the Repository
 ```bash
