@@ -38,9 +38,10 @@ def make_label(row):
     summary_preview = str(row['BestSummary'])[:80] + ('...' if len(str(row['BestSummary'])) > 80 else '')
     return f"{row['ProductId']} – {summary_preview}"
 
-product_list = products[['ProductId', 'BestSummary']].drop_duplicates()
+product_list = products[['ProductId', 'BestSummary']].drop_duplicates().head(1000)
+
 options = product_list.apply(make_label, axis=1).tolist()
-selected_label = st.selectbox('Select a Product:', options)
+selected_label = st.selectbox('Select a Product (Top 1000):', options)
 
 if selected_label:
     selected_id = selected_label.split(' – ')[0] 
@@ -49,10 +50,9 @@ if st.button('Get Recommendations'):
     if selected_id:
         results = get_recommendations(selected_id, products, top_n=5)
         if not results.empty:
-            # Show details of the selected product
             selected_product = products[products['ProductId'] == selected_id].iloc[0]
             st.subheader(f"Recommendations for **{selected_id}**")
-            st.caption(f"📝 {selected_product['BestSummary']}")
+            st.caption(f"{selected_product['BestSummary']}")
 
             st.dataframe(
                 results[['ProductId', 'BestSummary', 'avg_score']],
