@@ -85,9 +85,18 @@ def preprocess_text(text):
     words = [stemmer.stem(word) for word in words if word not in english_stopwords]
     return ' '.join(words)
 
-products['preprocessed_text'] = products['combined_text'].apply(preprocess_text)
+file_bersih = os.path.join('data', 'products_cleaned.csv')
 
-tfidf = TfidfVectorizer(max_features=TFIDF_MAX_FEATURES)
+if os.path.exists(file_bersih):
+    print("Loading cleaned text data...")
+    products = pd.read_csv(file_bersih)
+    products['preprocessed_text'] = products['preprocessed_text'].fillna('')
+else:
+    print("Cleaning text from scratch...")
+    products['preprocessed_text'] = products['combined_text'].apply(preprocess_text)
+    products.to_csv(file_bersih, index=False)
+
+tfidf = TfidfVectorizer(max_features=TFIDF_MAX_FEATURES, max_df=0.85, min_df=3)
 tfidf_matrix = tfidf.fit_transform(products['preprocessed_text'])
 
 numeric_features = products[['avg_score', 'avg_helpfulness']].values
@@ -103,9 +112,11 @@ nn.fit(combined_features)
 distances, indices = nn.kneighbors(combined_features)
 
 # Save neighbors
-np.savez_compressed('neighbors.npz', indices=indices, distances=distances)
+path_neighbors = os.path.join('models', 'neighbors.npz')
+np.savez_compressed(path_neighbors, indices=indices, distances=distances)
 
 # Save product info (only required columns)
-products[['ProductId', 'BestSummary', 'avg_score']].to_csv('products.csv', index=False)
+path_products_final = os.path.join('data', 'products.csv')
+products[['ProductId', 'BestSummary', 'avg_score']].to_csv(path_products_final, index=False)
 
 print("Preprocessing completed! Files saved: products.csv and neighbors.npz")
